@@ -37,6 +37,7 @@ model Items{
   id Int @id @default(autoincrement())
   name String
   description String
+  price Int
   stockQty Int
   isFeatured Boolean @default(false)
   onSale Boolean @default(false)
