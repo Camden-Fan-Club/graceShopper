@@ -16,7 +16,6 @@ model Users{
   password String
   email String 
   is_admin Boolean? @default(false)
-
   orders Orders[]
   reviews Reviews[]
 
@@ -43,9 +42,9 @@ model Items{
   onSale Boolean @default(false)
   imageUrl String
   categoryId Int
-order_items Order_Items[]
-item_reviews Item_Reviews[]
-category Category? @relation(fields: [categoryId], references: [id])
+  order_items Order_Items[]
+  item_reviews Item_Reviews[]
+  categories Categories? @relation(fields: [categoryId], references: [id])
 
 
 }
@@ -53,8 +52,8 @@ category Category? @relation(fields: [categoryId], references: [id])
 model Order_Items{
 id Int @id @default(autoincrement())
 orderId Int
-itemId Int
-quantity Int
+itemId Int?
+quantity Int?
 orders Orders? @relation(fields: [orderId], references: [id])
 items Items? @relation(fields: [itemId], references: [id])
 
@@ -74,14 +73,13 @@ model Reviews{
 
 model Item_Reviews{
   id Int @id @default(autoincrement())
-  itemId Int
-  reviewId Int
-
+  itemId Int?
+  reviewId Int?
 items Items? @relation(fields: [itemId], references: [id])
 reviews Reviews? @relation(fields: [reviewId], references: [id])
 }
 
-model Category{
+model Categories{
   id Int @id @default(autoincrement())
   name String
   items Items[]
