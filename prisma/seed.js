@@ -53,7 +53,7 @@ const seedDb = async () => {
   await Promise.all(
     item_reviews.map(async (item_review) => {
       console.log("item review", item_review);
-      return prisma.item_reviews.create({
+      return prisma.Item_Reviews.create({
         data: item_review,
       });
     })
@@ -71,7 +71,7 @@ const seedDb = async () => {
   console.log("creating order_items...");
   await Promise.all(
     order_items.map(async (order_item) => {
-      return prisma.order_items.create({
+      return prisma.Order_Items.create({
         data: order_item,
       });
     })
