@@ -5,6 +5,7 @@ const app = express();
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const { COOKIE_SECRET } = process.env;
+const routes = require("./routes");
 
 // const prisma = require(".prisma/client");
 // prisma.connect();
@@ -21,7 +22,7 @@ app.get("/health", (req, res) => {
 // api routes
 app.unsubscribe(express.json());
 
-app.use("/routes", require("./routes"));
+app.use("/routes", routes);
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "./client/dist", "index.html"));

@@ -12,9 +12,9 @@ datasource db {
 
 model Users{
   id Int @id @default(autoincrement())
-  username String
+  username String @unique
   password String
-  email String 
+  email String @unique 
   is_admin Boolean? @default(false)
   orders Orders[]
   reviews Reviews[]
@@ -25,9 +25,9 @@ model Users{
 
 model Orders{
   id Int @id @default(autoincrement())
-  userId Int 
-  status String
-  is_cart Boolean @default(true)
+  userId Int? 
+  status String? @default("Incomplete")
+  is_cart Boolean? @default(true)
 users Users? @relation(fields: [userId], references: [id])
 order_items Order_Items[]
 }

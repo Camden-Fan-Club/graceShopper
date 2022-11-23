@@ -372,6 +372,11 @@ const order_items = [
     itemId: 1,
     quantity: 3,
   },
+  {
+    orderId: 1,
+    itemId: 4,
+    quantity: 3,
+  },
 ];
 module.exports = {
   items,
