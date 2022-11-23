@@ -1,0 +1,138 @@
+const router = require("express").Router();
+const bcrypt = require("bcrypt");
+const { asyncErrorHandler } = require("./utils");
+const prisma = require("../prisma/prisma");
+
+const jwt = require("jsonwebtoken");
+const SALT_ROUNDS = 10;
+
+const { authRequired } = require("./utils");
+
+router.post(
+  "/register",
+  asyncErrorHandler(async (req, res, next) => {
+    const { username, password, email } = req.body;
+    console.log("req body reg", req.body);
+    const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
+    const createdUser = await prisma.users.create({
+      data: { username: username, password: hashedPassword, email: email },
+    });
+    const token = jwt.sign(createdUser, process.env.JWT_SECRET);
+
+    res.cookie("token", token, {
+      sameSite: "strict",
+      httpOnly: true,
+      signed: true,
+    });
+
+    res.send(createdUser);
+  })
+);
+
+router.post(
+  "/login",
+  asyncErrorHandler(async (req, res, next) => {
+    const { username, password, email } = req.body;
+    console.log("req body reg", req.body);
+    const user = await prisma.users.findUnique({
+      where: { username: username },
+      where: { password: password },
+      where: { email: email },
+    });
+    const token = jwt.sign(user, process.env.JWT_SECRET);
+
+    res.cookie("token", token, {
+      sameSite: "strict",
+      httpOnly: true,
+      signed: true,
+    });
+
+    res.send(user);
+  })
+);
+
+router.post(
+  "/logout",
+  asyncErrorHandler(async (req, res, next) => {
+    res.clearCookie("token", {
+      sameSite: "strict",
+      httpOnly: true,
+      signed: true,
+    });
+    res.send({
+      loggedIn: false,
+      message: "Logged Out",
+    });
+  })
+);
+
+router.get(
+  "/",
+  asyncErrorHandler(async (req, res, next) => {
+    const users = await prisma.users.findMany();
+    res.send(users);
+  })
+);
+
+router.get(
+  "/me",
+  authRequired,
+  asyncErrorHandler(async (req, res, next) => {
+    res.send(req.user);
+  })
+);
+
+router.patch(
+  "/me",
+  authRequired,
+  asyncErrorHandler(async (req, res, next) => {
+    const { username, password, email } = req.body;
+    const updatedUser = await prisma.users.update({
+      where: {
+        id: req.user.id,
+      },
+      where: { username: req.user.username },
+      where: { email: req.user.email },
+      data: req.body,
+    });
+    res.send(updatedUser);
+  })
+);
+
+router.get(
+  "/my_orders",
+  authRequired,
+  asyncErrorHandler(async (req, res, next) => {
+    const myOrders = await prisma.orders.findMany({
+      where: { userId: req.user.id },
+      include: {
+        order_items: {
+          include: {
+            items: true,
+          },
+        },
+      },
+    });
+    res.send(myOrders);
+  })
+);
+
+router.get(
+  "/my_reviews",
+  authRequired,
+  asyncErrorHandler(async (req, res, next) => {
+    const myReviews = await prisma.reviews.findMany({
+      where: { userId: req.user.id },
+      include: {
+        item_reviews: {
+          include: {
+            items: true,
+          },
+        },
+      },
+    });
+    res.send(myReviews);
+  })
+);
+
+module.exports = router;

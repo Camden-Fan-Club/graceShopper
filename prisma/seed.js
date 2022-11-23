@@ -52,7 +52,6 @@ const seedDb = async () => {
 
   await Promise.all(
     item_reviews.map(async (item_review) => {
-      console.log("item review", item_review);
       return prisma.Item_Reviews.create({
         data: item_review,
       });
