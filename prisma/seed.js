@@ -48,16 +48,16 @@ const seedDb = async () => {
     })
   );
 
-  // console.log("creating item_reviews...");
+  console.log("creating item_reviews...");
 
-  // await Promise.all(
-  //   item_reviews.map(async (item_review) => {
-  //     console.log("item review", item_review);
-  //     return prisma.item_reviews.create({
-  //       data: item_review,
-  //     });
-  //   })
-  // );
+  await Promise.all(
+    item_reviews.map(async (item_review) => {
+      console.log("item review", item_review);
+      return prisma.item_reviews.create({
+        data: item_review,
+      });
+    })
+  );
 
   console.log("creating orders...");
   await Promise.all(
@@ -68,14 +68,14 @@ const seedDb = async () => {
     })
   );
 
-  // console.log("creating order_items...");
-  // await Promise.all(
-  //   order_items.map(async (order_item) => {
-  //     return prisma.order_items.create({
-  //       data: order_item,
-  //     });
-  //   })
-  // );
+  console.log("creating order_items...");
+  await Promise.all(
+    order_items.map(async (order_item) => {
+      return prisma.order_items.create({
+        data: order_item,
+      });
+    })
+  );
 };
 
 const initDb = async () => {
