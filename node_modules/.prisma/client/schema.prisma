@@ -52,10 +52,11 @@ model Items{
 model Order_Items{
 id Int @id @default(autoincrement())
 orderId Int
-itemId Int?
+itemId Int
 quantity Int?
 orders Orders? @relation(fields: [orderId], references: [id])
 items Items? @relation(fields: [itemId], references: [id])
+@@unique([orderId, itemId])
 
 }
 
@@ -77,6 +78,7 @@ model Item_Reviews{
   reviewId Int?
 items Items? @relation(fields: [itemId], references: [id])
 reviews Reviews? @relation(fields: [reviewId], references: [id])
+@@unique([reviewId, itemId])
 }
 
 model Categories{
