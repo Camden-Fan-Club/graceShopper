@@ -1,5 +1,6 @@
 import { action, thunk } from "easy-peasy";
 import axios from "axios";
+
 export const items = {
   data: [],
   selectedItem: {},

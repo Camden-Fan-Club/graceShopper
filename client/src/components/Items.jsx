@@ -11,7 +11,10 @@ export default function Items() {
   }, []);
   return (
     <div>
+      {" "}
+      items
       {items.map((item) => {
+        console.log("items", items);
         return (
           <div>
             <h3>{item.name}</h3>
