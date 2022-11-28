@@ -33,7 +33,7 @@ router.post(
   "/",
   asyncErrorHandler(async (req, res, next) => {
     const { userId, status, isCart } = req.body;
-    const createdOrder = await prisma.reviews.create({
+    const createdOrder = await prisma.orders.create({
       data: { userId: userId, status: status, isCart: isCart },
     });
 
@@ -44,12 +44,12 @@ router.post(
 router.patch(
   "/:orderId",
   asyncErrorHandler(async (req, res, next) => {
-    const { userId, status, isCart } = req.body;
-    const updatedOrder = await prisma.reviews.create({
+    const { userId, status, is_cart } = req.body;
+    const updatedOrder = await prisma.orders.update({
       where: {
         id: +req.params.orderId,
       },
-      data: { userId: userId, status: status, isCart: isCart },
+      data: req.body,
     });
 
     res.send(updatedOrder);
