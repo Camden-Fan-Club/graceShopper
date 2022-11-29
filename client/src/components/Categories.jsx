@@ -11,11 +11,11 @@ export default function Categories() {
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
   const catDict = [
     null,
-    "Outdoor Paints",
+    "Outdoor Paint",
     "Tape and Accessories",
     "Brushes",
     "Rollers",
-    "Indoor Paints",
+    "Indoor Paint",
   ];
 
   useEffect(() => {

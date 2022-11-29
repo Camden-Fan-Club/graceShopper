@@ -11,7 +11,7 @@ export default function CategoryDropdown() {
         id="dropdown-button-dark-example2"
         variant="secondary"
         menuVariant="dark"
-        title="Dropdown button"
+        title="Categories"
         className="mt-2"
       >
         <Dropdown.Item
