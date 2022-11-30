@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar";
 import Homepage from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import Categories from "./components/Categories";
+import Register from "./components/Register";
+import Login from "./components/login";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,7 +15,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/items" element={<Items />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/categories/:categoryId" element={<Categories />} />

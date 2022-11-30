@@ -11,8 +11,8 @@ export default function Navbar() {
       <CategoryDropdown />
       <Link>Sales</Link>
       <Link>My Orders</Link>
-      <Link>Login</Link>
-      <Link>Register</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
       <Link>Logout</Link>
     </div>
   );
