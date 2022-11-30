@@ -15,7 +15,7 @@ router.post(
   asyncErrorHandler(async (req, res, next) => {
     const iId = +req.params.itemId;
     const oId = +req.params.orderId;
-    const { orderId, itemId, quantity } = req.body;
+    const { quantity } = req.body;
     const createdItem = await prisma.order_Items.create({
       data: { orderId: oId, itemId: iId, quantity: quantity },
     });
@@ -28,15 +28,13 @@ router.patch(
   asyncErrorHandler(async (req, res, next) => {
     const iId = +req.params.itemId;
     const oId = +req.params.orderId;
-    const { orderId, itemId, quantity } = req.body;
+    const { quantity } = req.body;
     const updatedOrderItems = await prisma.order_Items.update({
       where: {
         orderId_itemId: { orderId: oId, itemId: iId },
       },
 
       data: {
-        orderId: oId,
-        itemId: iId,
         quantity: quantity,
       },
     });
@@ -50,7 +48,6 @@ router.delete(
   asyncErrorHandler(async (req, res, next) => {
     const iId = +req.params.itemId;
     const oId = +req.params.orderId;
-    const { orderId, itemId } = req.body;
     const deletedOrderItems = await prisma.order_Items.delete({
       where: {
         orderId_itemId: { orderId: oId, itemId: iId },

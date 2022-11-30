@@ -49,7 +49,7 @@ router.patch(
       where: {
         id: +req.params.orderId,
       },
-      data: req.body,
+      data: { userId, status, is_cart },
     });
 
     res.send(updatedOrder);

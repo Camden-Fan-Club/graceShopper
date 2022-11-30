@@ -10,6 +10,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await loginUser({ username, email, password });
+    // fetchCart -> Put in in easy peasy cart state
     setUsername("");
     setEmail("");
     setPassword("");

@@ -7,8 +7,6 @@ const cookieParser = require("cookie-parser");
 const { COOKIE_SECRET } = process.env;
 const routes = require("./routes");
 
-// const prisma = require(".prisma/client");
-// prisma.connect();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
@@ -19,9 +17,7 @@ app.get("/health", (req, res) => {
   res.send("All Healthy Good to Go!");
 });
 
-// api routes
-app.unsubscribe(express.json());
-
+// api route
 app.use("/routes", routes);
 
 app.use((req, res, next) => {
