@@ -55,8 +55,8 @@ export default function CategoryDropdown() {
   );
 }
 
-{
-  /* <Dropdown title="Categories">
+// {
+/* <Dropdown title="Categories">
         <Dropdown.Item
           onClick={() => {
             navigate("/categories/1");
@@ -94,4 +94,4 @@ export default function CategoryDropdown() {
           Interior Paint
         </Dropdown.Item>
       </Dropdown> */
-}
+// }
