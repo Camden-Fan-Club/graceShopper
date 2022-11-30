@@ -1,4 +1,5 @@
 import { action, thunk } from "easy-peasy";
+import axios from "axios";
 
 export const users = {
   data: [],
@@ -19,7 +20,8 @@ export const users = {
 
   registerUser: action((state, payload) => [state.data.push(payload)]),
   createUser: thunk(async (actions, payload) => {
+    console.log("payload", payload);
     const { data } = await axios.post("/routes/users/register", payload);
-    actions.createUser(data);
+    actions.registerUser(data);
   }),
 };

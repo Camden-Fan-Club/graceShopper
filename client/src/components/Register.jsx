@@ -1,18 +1,21 @@
 import { useState } from "react";
 import useUsers from "../hooks/useUser";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   const { createUser } = useUsers();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createUser({ username, email, password });
+    await createUser({ username, password, email });
     setUsername("");
     setEmail("");
     setPassword("");
+    navigate("/");
   };
 
   return (
@@ -29,7 +32,7 @@ export default function Register() {
           placeholder="password"
           type="text"
           value={password}
-          onChange={(e) => setPassword(+e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <input
           placeholder="email"
