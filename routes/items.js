@@ -36,17 +36,26 @@ router.get(
 router.post(
   "/",
   asyncErrorHandler(async (req, res, next) => {
-    const { name, description, price, stockQty, isFeatured, onSale, imageUrl } =
-      req.body;
+    const {
+      name,
+      description,
+      price,
+      stockQty,
+      isFeatured,
+      onSale,
+      imageUrl,
+      categoryId,
+    } = req.body;
     const createdItem = await prisma.items.create({
       data: {
         name,
         description,
-        price,
+        price: +price,
         stockQty: +stockQty,
         isFeatured,
         onSale,
         imageUrl,
+        categoryId,
       },
     });
     res.send(createdItem);

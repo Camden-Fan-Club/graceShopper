@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 });
 
 app.use((error, req, res, next) => {
-  res.satus(500).send(error);
+  res.status(500).send(error);
 });
 
 module.exports = app;

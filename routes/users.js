@@ -21,6 +21,10 @@ router.post(
     delete createdUser.password;
 
     // Create a cart with the createdUser.id => order is_cart = true
+    const userId = createdUser.id;
+    await prisma.orders.create({
+      data: { userId: userId, status: "pending", is_cart: true },
+    });
 
     const token = jwt.sign(createdUser, process.env.JWT_SECRET);
 
@@ -44,16 +48,25 @@ router.post(
     });
 
     //bcrypt.compare => user.password -> password if the pwds dont match send and error with next
+    console.log("user", user);
+    const validPassword = await bcrypt.compare(password, user.password);
 
-    const token = jwt.sign(user, process.env.JWT_SECRET);
+    console.log("valid pass", validPassword);
 
-    res.cookie("token", token, {
-      sameSite: "strict",
-      httpOnly: true,
-      signed: true,
-    });
+    if (validPassword) {
+      const token = jwt.sign(user, process.env.JWT_SECRET);
+      console.log("user", user);
 
-    res.send(user);
+      res.cookie("token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        signed: true,
+      });
+      delete user.password;
+      res.send({ user });
+    } else {
+      next("invalid credentials");
+    }
   })
 );
 
