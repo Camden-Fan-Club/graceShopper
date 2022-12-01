@@ -37,23 +37,39 @@ router.post(
 router.post(
   "/login",
   asyncErrorHandler(async (req, res, next) => {
-    const { username, password, email } = req.body;
-    console.log("req body reg", req.body);
-    const user = await prisma.users.findUnique({
-      where: { username: username },
-    });
+    try {
+      const { username, password, email } = req.body;
+      console.log("req body reg", req.body);
+      const user = await prisma.users.findUnique({
+        where: { username: username },
+      });
+      //const validPassword = await bcrypt.compare(password, user.password);
+      delete user.password;
+      const token = jwt.sign(user, process.env.JWT_SECRET);
+      console.log(user);
 
-    //bcrypt.compare => user.password -> password if the pwds dont match send and error with next
+      res.cookie("token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        signed: true,
+      });
 
-    const token = jwt.sign(user, process.env.JWT_SECRET);
+      res.send(user);
+      // if (validPassword) {
+      //   const token = jwt.sign(user, process.env.JWT_SECRET);
+      //   console.log(user);
 
-    res.cookie("token", token, {
-      sameSite: "strict",
-      httpOnly: true,
-      signed: true,
-    });
+      //   res.cookie("token", token, {
+      //     sameSite: "strict",
+      //     httpOnly: true,
+      //     signed: true,
+      //   });
 
-    res.send(user);
+      //   res.send(user);
+      // }
+    } catch (error) {
+      next(error);
+    }
   })
 );
 
@@ -104,7 +120,25 @@ router.patch(
 );
 
 // GET api/users/me/cart -> Get and order with userId and is_cart = true
+router.get(
+  "/me/cart",
+  authRequired,
+  asyncErrorHandler(async (req, res, next) => {
+    console.log("cart", req);
 
+    const myCart = await prisma.orders.findUnique({
+      where: { userId: req.body.user.id },
+      include: {
+        order_items: {
+          include: {
+            items: true,
+          },
+        },
+      },
+    });
+    res.send(myCart);
+  })
+);
 router.get(
   "/my_orders",
   authRequired,

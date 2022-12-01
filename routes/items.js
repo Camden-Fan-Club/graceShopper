@@ -62,7 +62,15 @@ router.patch(
       where: {
         id: +req.params.itemId,
       },
-      data: req.body,
+      data: {
+        name,
+        description,
+        price,
+        stockQty,
+        isFeatured,
+        onSale,
+        imageUrl,
+      },
     });
     res.send(updatedItem);
   })
