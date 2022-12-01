@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const SALT_ROUNDS = 10;
 
 const { authRequired } = require("./utils");
+const { order_Items } = require("../prisma/prisma");
 
 router.post(
   "/register",
@@ -63,7 +64,17 @@ router.post(
         signed: true,
       });
       delete user.password;
-      res.send({ user });
+      const cart = await prisma.orders.findMany({
+        where: { userId: user.id, is_cart: true },
+        include: {
+          order_items: {
+            include: {
+              items: true,
+            },
+          },
+        },
+      });
+      res.send({ user, cart });
     } else {
       next("invalid credentials");
     }
@@ -151,6 +162,28 @@ router.get(
       },
     });
     res.send(myReviews);
+  })
+);
+
+router.get(
+  "/:userId/cart",
+  asyncErrorHandler(async (req, res, next) => {
+    const { userId } = +req.params;
+    console.log("req body reg", req.body);
+    const user = await prisma.users.findUnique({
+      where: { id: userId },
+    });
+    const myCart = await prisma.orders.findMany({
+      where: { userId: user.id, is_cart: true },
+      include: {
+        order_items: {
+          include: {
+            items: true,
+          },
+        },
+      },
+    });
+    res.send(myCart);
   })
 );
 
