@@ -12,6 +12,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await createUser({ username, password, email });
+    // fetchCart -> Put in in easy peasy cart state
     setUsername("");
     setEmail("");
     setPassword("");

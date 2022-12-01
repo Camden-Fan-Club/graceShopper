@@ -9,14 +9,13 @@ export default function Categories() {
   const [catId, setCatId] = useState("");
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
-  const catDict = [
-    null,
-    "Outdoor Paint",
-    "Tape and Accessories",
-    "Brushes",
-    "Rollers",
-    "Indoor Paint",
-  ];
+  const catDict = {
+    1: "Outdoor Paint",
+    2: "Tape and Accessories",
+    3: "Brushes",
+    4: "Rollers",
+    5: "Indoor Paint",
+  };
 
   useEffect(() => {
     fetchItems();

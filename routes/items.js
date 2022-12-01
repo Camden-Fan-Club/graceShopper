@@ -39,7 +39,15 @@ router.post(
     const { name, description, price, stockQty, isFeatured, onSale, imageUrl } =
       req.body;
     const createdItem = await prisma.items.create({
-      data: req.body,
+      data: {
+        name,
+        description,
+        price,
+        stockQty: +stockQty,
+        isFeatured,
+        onSale,
+        imageUrl,
+      },
     });
     res.send(createdItem);
   })

@@ -17,6 +17,11 @@ router.post(
     const createdUser = await prisma.users.create({
       data: { username: username, password: hashedPassword, email: email },
     });
+
+    delete createdUser.password;
+
+    // Create a cart with the createdUser.id => order is_cart = true
+
     const token = jwt.sign(createdUser, process.env.JWT_SECRET);
 
     res.cookie("token", token, {
@@ -36,9 +41,10 @@ router.post(
     console.log("req body reg", req.body);
     const user = await prisma.users.findUnique({
       where: { username: username },
-      where: { password: password },
-      where: { email: email },
     });
+
+    //bcrypt.compare => user.password -> password if the pwds dont match send and error with next
+
     const token = jwt.sign(user, process.env.JWT_SECRET);
 
     res.cookie("token", token, {
@@ -91,13 +97,13 @@ router.patch(
       where: {
         id: req.user.id,
       },
-      where: { username: req.user.username },
-      where: { email: req.user.email },
       data: req.body,
     });
     res.send(updatedUser);
   })
 );
+
+// GET api/users/me/cart -> Get and order with userId and is_cart = true
 
 router.get(
   "/my_orders",

@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { asyncErrorHandler, authRequired } = require("./utils");
 const prisma = require("../prisma/prisma");
-const { reviews } = require("../prisma/prisma");
 
 router.get(
   "/",
