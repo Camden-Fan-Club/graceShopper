@@ -21,7 +21,6 @@ router.post(
 
     delete createdUser.password;
 
-    // Create a cart with the createdUser.id => order is_cart = true
     const userId = createdUser.id;
     await prisma.orders.create({
       data: { userId: userId, status: "pending", is_cart: true },
@@ -48,7 +47,6 @@ router.post(
       where: { username: username },
     });
 
-    //bcrypt.compare => user.password -> password if the pwds dont match send and error with next
     console.log("user", user);
     const validPassword = await bcrypt.compare(password, user.password);
 
@@ -121,13 +119,11 @@ router.patch(
       where: {
         id: req.user.id,
       },
-      data: req.body,
+      data: { username, password, email },
     });
     res.send(updatedUser);
   })
 );
-
-// GET api/users/me/cart -> Get and order with userId and is_cart = true
 
 router.get(
   "/my_orders",
@@ -170,9 +166,6 @@ router.get(
   asyncErrorHandler(async (req, res, next) => {
     const { userId } = +req.params;
     console.log("req body reg", req.body);
-    // const user = await prisma.users.findUnique({
-    //   where: { id: userId },
-    // });
     const myCart = await prisma.orders.findMany({
       where: { userId: userId, is_cart: true },
       include: {
