@@ -1,14 +1,16 @@
 import { Button } from "react-bootstrap";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CategoryDropdown from "./CategoryDropdown";
+import useAuth from "../hooks/useAuth";
 
 export default function Navbar() {
   const navigate = useNavigate();
-
+  const { selectedUser, fetchMe, logoutUser } = useAuth();
   useEffect(() => {
-    // call the fetcheMe thunk
+    fetchMe();
   }, []);
 
   return (
@@ -16,17 +18,25 @@ export default function Navbar() {
       <CategoryDropdown />
       <Link>Sales</Link>
       <Link>My Orders</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>
+      {selectedUser.username === "Guest" ? (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </>
+      ) : null}
       <Link to="/mycart">My Cart</Link>
-      <Button
-        onClick={() => {
-          logoutUser();
-          navigate("/");
-        }}
-      >
-        Logout
-      </Button>
+      {selectedUser.username !== "Guest" ? (
+        <>
+          <Button
+            onClick={() => {
+              logoutUser();
+              navigate("/");
+            }}
+          >
+            Logout
+          </Button>{" "}
+        </>
+      ) : null}
     </div>
   );
 }

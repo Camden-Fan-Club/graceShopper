@@ -8,6 +8,7 @@ export default function useAuth() {
   const loginUser = useStoreActions((actions) => actions.auth.loginUser);
   const fetchUsers = useStoreActions((actions) => actions.auth.fetchUsers);
   const logoutUser = useStoreActions((actions) => actions.auth.logoutUser);
+  const fetchMe = useStoreActions((actions) => actions.auth.fetchMe);
 
   return {
     createUser,
@@ -16,5 +17,6 @@ export default function useAuth() {
     fetchUsers,
     selectedUser,
     logoutUser,
+    fetchMe,
   };
 }
