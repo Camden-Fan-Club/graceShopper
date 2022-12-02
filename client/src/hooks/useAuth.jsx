@@ -7,6 +7,7 @@ export default function useAuth() {
   const selectedUser = useStoreState((state) => state.auth.selectedUser);
   const loginUser = useStoreActions((actions) => actions.auth.loginUser);
   const fetchUsers = useStoreActions((actions) => actions.auth.fetchUsers);
+  const logoutUser = useStoreActions((actions) => actions.auth.logoutUser);
 
   return {
     createUser,
@@ -14,5 +15,6 @@ export default function useAuth() {
     loginUser,
     fetchUsers,
     selectedUser,
+    logoutUser,
   };
 }

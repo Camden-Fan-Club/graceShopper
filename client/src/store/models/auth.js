@@ -16,5 +16,10 @@ export const auth = {
     const { data } = await axios.post("/routes/users/register", payload);
     actions.setUser(data);
   }),
+
+  logoutUser: thunk(async (actions, payload) => {
+    const { data } = await axios.post("/routes/users/logout", payload);
+    actions.setUser(data);
+  }),
   // fetchMe
 };

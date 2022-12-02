@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -14,7 +15,14 @@ export default function Navbar() {
       <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
       <Link to="/mycart">My Cart</Link>
-      <Link>Logout</Link>
+      <Button
+        onClick={() => {
+          logoutUser();
+          navigate("/");
+        }}
+      >
+        Logout
+      </Button>
     </div>
   );
 }
