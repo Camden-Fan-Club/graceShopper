@@ -7,6 +7,7 @@ export const auth = {
     state.selectedUser = payload;
   }),
   loginUser: thunk(async (actions, payload) => {
+    console.log("payload in login", payload);
     const { data } = await axios.post("/routes/users/login", payload);
     actions.setUser(data);
   }),
