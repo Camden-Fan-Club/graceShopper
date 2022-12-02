@@ -2,7 +2,7 @@ import { action, thunk } from "easy-peasy";
 import axios from "axios";
 
 export const auth = {
-  selectedUser: {},
+  selectedUser: { username: "Guest" },
   setUser: action((state, payload) => {
     state.selectedUser = payload;
   }),

@@ -1,11 +1,9 @@
 import { useEffect } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import useAuth from "../hooks/useAuth";
 import useCart from "../hooks/useCart";
 
 export default function Cart() {
-  const { selectedUser } = useAuth();
   const { cart, fetchCart } = useCart();
 
   useEffect(() => {
@@ -13,11 +11,11 @@ export default function Cart() {
     const userId = selectedUser.user.id;
     fetchCart(userId);
   }, []);
-  const userCart = selectedUser.cart[0].order_items;
+  console.log(cart);
 
   return (
     <div>
-      {" "}
+      {/* {" "}
       items
       {userCart.map((oI) => {
         const item = oI.items;
@@ -27,7 +25,7 @@ export default function Cart() {
             <h4>{item.quantity}</h4>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 }
