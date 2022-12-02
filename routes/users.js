@@ -170,11 +170,11 @@ router.get(
   asyncErrorHandler(async (req, res, next) => {
     const { userId } = +req.params;
     console.log("req body reg", req.body);
-    const user = await prisma.users.findUnique({
-      where: { id: userId },
-    });
+    // const user = await prisma.users.findUnique({
+    //   where: { id: userId },
+    // });
     const myCart = await prisma.orders.findMany({
-      where: { userId: user.id, is_cart: true },
+      where: { userId: userId, is_cart: true },
       include: {
         order_items: {
           include: {
