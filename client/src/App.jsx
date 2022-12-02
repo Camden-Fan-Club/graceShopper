@@ -8,6 +8,7 @@ import Categories from "./components/Categories";
 import Register from "./components/Register";
 import Login from "./components/login";
 import Cart from "./components/Cart";
+import { useEffect } from "react";
 
 function App() {
   const [count, setCount] = useState(0);

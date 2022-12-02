@@ -7,6 +7,10 @@ import CategoryDropdown from "./CategoryDropdown";
 export default function Navbar() {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // call the fetcheMe thunk
+  }, []);
+
   return (
     <div>
       <CategoryDropdown />
