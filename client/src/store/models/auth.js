@@ -21,5 +21,8 @@ export const auth = {
     const { data } = await axios.post("/routes/users/logout", payload);
     actions.setUser(data);
   }),
-  // fetchMe
+  fetchMe: thunk(async (actions, payload) => {
+    const { data } = await axios.get("/routes/users/me", payload);
+    actions.setUser(data);
+  }),
 };
