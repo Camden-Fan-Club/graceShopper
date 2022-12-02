@@ -13,6 +13,7 @@ export default function Navbar() {
       <Link>My Orders</Link>
       <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
+      <Link to="/mycart">My Cart</Link>
       <Link>Logout</Link>
     </div>
   );

@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import Categories from "./components/Categories";
 import Register from "./components/Register";
 import Login from "./components/login";
+import Cart from "./components/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +21,7 @@ function App() {
         <Route path="/items" element={<Items />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/categories/:categoryId" element={<Categories />} />
+        <Route path="/mycart" element={<Cart />} />
       </Routes>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
