@@ -19,7 +19,7 @@ export const auth = {
 
   logoutUser: thunk(async (actions, payload) => {
     const { data } = await axios.post("/routes/users/logout", payload);
-    actions.setUser(data);
+    actions.setUser({ username: "Guest" });
   }),
   fetchMe: thunk(async (actions, payload) => {
     const { data } = await axios.get("/routes/users/me", payload);
