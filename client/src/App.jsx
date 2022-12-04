@@ -8,13 +8,12 @@ import Categories from "./components/Categories";
 import Register from "./components/Register";
 import Login from "./components/login";
 import Cart from "./components/Cart";
-import { useEffect } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
+    <div className="App bg-neutral-200">
       <NavBar />
       <Routes>
         <Route path="/register" element={<Register />} />
