@@ -16,6 +16,7 @@ export default function Navbar() {
   return (
     <div class="flex justify-evenly items-center bg-slate-700">
       <CategoryDropdown />
+      <Link to="/home">Home</Link>
       <Link>Sales</Link>
       <Link>My Orders</Link>
       {selectedUser.username === "Guest" ? (

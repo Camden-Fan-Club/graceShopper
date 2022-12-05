@@ -11,4 +11,8 @@ export const cart = {
     const { data } = await axios.get(`/routes/users/${payload}/cart`);
     actions.setCart(data);
   }),
+
+  //UPDATE
+
+  //DELETE
 };
