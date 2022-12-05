@@ -1,8 +1,9 @@
 const items = [
   {
     name: "Red Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 20,
+    description:
+      "1 gallon. Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 10,
     isFeatured: true,
     onSale: true,
@@ -12,8 +13,9 @@ const items = [
   },
   {
     name: "Blue Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 16,
     isFeatured: false,
     onSale: false,
@@ -24,8 +26,9 @@ const items = [
 
   {
     name: "Green Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 23,
     isFeatured: false,
     onSale: false,
@@ -36,8 +39,9 @@ const items = [
 
   {
     name: "Yellow Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 13,
     isFeatured: false,
     onSale: false,
@@ -48,8 +52,9 @@ const items = [
 
   {
     name: "Orange Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 26,
     isFeatured: true,
     onSale: false,
@@ -60,8 +65,9 @@ const items = [
 
   {
     name: "White Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 9,
     isFeatured: false,
     onSale: false,
@@ -72,8 +78,9 @@ const items = [
 
   {
     name: "Black Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 11,
     isFeatured: false,
     onSale: false,
@@ -84,8 +91,9 @@ const items = [
 
   {
     name: "Brown Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 20,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 14,
     isFeatured: true,
     onSale: true,
@@ -96,8 +104,9 @@ const items = [
 
   {
     name: "Pink Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 27,
     isFeatured: false,
     onSale: false,
@@ -108,8 +117,9 @@ const items = [
 
   {
     name: "Purple Exterior Paint",
-    description: "0 VOC, low odor paint with primer",
-    price: 25,
+    description:
+      "1 gallon.  Advanced all-weather protection shields painted surface from harsh weather conditions.  Resilient, 100% acrylic formula provides extra protection from cracking, peeling and blistering",
+    price: 62,
     stockQty: 17,
     isFeatured: false,
     onSale: false,
@@ -119,7 +129,8 @@ const items = [
   },
   {
     name: "Red Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 10,
     isFeatured: false,
@@ -130,7 +141,8 @@ const items = [
   },
   {
     name: "Blue Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 16,
     isFeatured: false,
@@ -142,7 +154,8 @@ const items = [
 
   {
     name: "Green Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 23,
     isFeatured: false,
@@ -154,7 +167,8 @@ const items = [
 
   {
     name: "Yellow Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 13,
     isFeatured: false,
@@ -166,7 +180,8 @@ const items = [
 
   {
     name: "Orange Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 26,
     isFeatured: false,
@@ -178,7 +193,8 @@ const items = [
 
   {
     name: "White Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 9,
     isFeatured: false,
@@ -190,7 +206,8 @@ const items = [
 
   {
     name: "Black Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 11,
     isFeatured: false,
@@ -202,7 +219,8 @@ const items = [
 
   {
     name: "Brown Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 14,
     isFeatured: false,
@@ -214,7 +232,8 @@ const items = [
 
   {
     name: "Pink Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 65,
     stockQty: 27,
     isFeatured: false,
@@ -226,7 +245,8 @@ const items = [
 
   {
     name: "Purple Interior Paint",
-    description: "0 VOC, low odor paint with primer",
+    description:
+      "1 gallon.  0 VOC, low odor paint with primer. Repels stains, resists scuff marks and scratches.",
     price: 60,
     stockQty: 17,
     isFeatured: true,
@@ -262,7 +282,7 @@ const items = [
     name: "Valspar Roller",
     description:
       "3 piece roller kit includes 4in roller, mini roller and plastic paint tray.",
-    price: 25,
+    price: 12,
     stockQty: 50,
     isFeatured: false,
     onSale: false,
@@ -275,7 +295,7 @@ const items = [
     name: "Wooster Roller",
     description:
       "4-1/2in. x 3/8in. Pro Surpass Shed-Resistant Knit Cage Frame Minit Roller Assembly.",
-    price: 25,
+    price: 8,
     stockQty: 46,
     isFeatured: false,
     onSale: false,
