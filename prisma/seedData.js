@@ -249,12 +249,13 @@ const items = [
   {
     name: "Foam Brush",
     description:
-      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265867/graceshopper/download_f5wako.png",
+      "4-1/2in. x 3/8in. Pro Surpass Shed-Resistant Knit Cage Frame Minit Roller Assembly.",
     price: 25,
     stockQty: 50,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265867/graceshopper/download_f5wako.png",
     categoryId: 3,
   },
   {

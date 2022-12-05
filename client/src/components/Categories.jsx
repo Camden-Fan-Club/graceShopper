@@ -38,10 +38,7 @@ export default function Categories() {
             <div class="border-solid border-2 border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
               <h3>{item.name}</h3>
               <p>{item.description}</p>
-              <img
-                className="h-40 mt-0"
-                src="https://media.istockphoto.com/id/479550190/photo/red-paint.jpg?s=612x612&w=0&k=20&c=4MJ6zv9kHeYsct6Z-DDhruapLSKoo1TOGBCoekrDIQg="
-              ></img>
+              <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
             </div>
           );
