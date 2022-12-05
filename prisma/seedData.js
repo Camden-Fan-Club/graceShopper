@@ -268,8 +268,7 @@ const items = [
   },
   {
     name: "Foam Brush",
-    description:
-      "4-1/2in. x 3/8in. Pro Surpass Shed-Resistant Knit Cage Frame Minit Roller Assembly.",
+    description: "2in. Foam Flat Paint Brush for general purposes.",
     price: 25,
     stockQty: 50,
     isFeatured: false,
