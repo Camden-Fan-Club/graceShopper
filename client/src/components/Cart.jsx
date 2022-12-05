@@ -5,6 +5,7 @@ import useCart from "../hooks/useCart";
 
 export default function Cart() {
   const { cart, fetchCart } = useCart();
+  const { selectedUser } = useAuth();
 
   useEffect(() => {
     console.log("selecteduser in cart", selectedUser);
@@ -17,7 +18,7 @@ export default function Cart() {
     <div>
       {/* {" "}
       items
-      {userCart.map((oI) => {
+      {cart.map((oI) => {
         const item = oI.items;
         return (
           <div>
