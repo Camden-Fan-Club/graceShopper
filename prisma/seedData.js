@@ -6,7 +6,8 @@ const items = [
     stockQty: 10,
     isFeatured: true,
     onSale: true,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266424/graceshopper/istockphoto-123493123-612x612_uqum79.jpg",
     categoryId: 1,
   },
   {
@@ -16,7 +17,8 @@ const items = [
     stockQty: 16,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265799/graceshopper/istockphoto-1200179597-612x612_pwibrs.jpg",
     categoryId: 1,
   },
 
@@ -27,7 +29,8 @@ const items = [
     stockQty: 23,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266496/graceshopper/istockphoto-623067304-612x612_ckpyhh.jpg",
     categoryId: 1,
   },
 
@@ -38,7 +41,8 @@ const items = [
     stockQty: 13,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265826/graceshopper/istockphoto-1333355156-612x612_egjwhk.jpg",
     categoryId: 1,
   },
 
@@ -49,7 +53,8 @@ const items = [
     stockQty: 26,
     isFeatured: true,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265935/graceshopper/istockphoto-182475047-612x612_kjucxn.jpg",
     categoryId: 1,
   },
 
@@ -60,7 +65,8 @@ const items = [
     stockQty: 9,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266131/graceshopper/download_h04mam.png",
     categoryId: 1,
   },
 
@@ -71,7 +77,8 @@ const items = [
     stockQty: 11,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266568/graceshopper/download_ctrxy6.png",
     categoryId: 1,
   },
 
@@ -82,7 +89,8 @@ const items = [
     stockQty: 14,
     isFeatured: true,
     onSale: true,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266094/graceshopper/istockphoto-514738978-612x612_pkqob0.jpg",
     categoryId: 1,
   },
 
@@ -93,7 +101,8 @@ const items = [
     stockQty: 27,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266121/graceshopper/istockphoto-108537899-612x612_e1mu5m.jpg",
     categoryId: 1,
   },
 
@@ -104,7 +113,8 @@ const items = [
     stockQty: 17,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265997/graceshopper/istockphoto-638005480-612x612_n0gyh4.jpg",
     categoryId: 1,
   },
   {
@@ -114,7 +124,8 @@ const items = [
     stockQty: 10,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266424/graceshopper/istockphoto-123493123-612x612_uqum79.jpg",
     categoryId: 2,
   },
   {
@@ -124,7 +135,8 @@ const items = [
     stockQty: 16,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265799/graceshopper/istockphoto-1200179597-612x612_pwibrs.jpg",
     categoryId: 2,
   },
 
@@ -135,7 +147,8 @@ const items = [
     stockQty: 23,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266496/graceshopper/istockphoto-623067304-612x612_ckpyhh.jpg",
     categoryId: 2,
   },
 
@@ -146,7 +159,8 @@ const items = [
     stockQty: 13,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265826/graceshopper/istockphoto-1333355156-612x612_egjwhk.jpg",
     categoryId: 2,
   },
 
@@ -157,7 +171,8 @@ const items = [
     stockQty: 26,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265935/graceshopper/istockphoto-182475047-612x612_kjucxn.jpg",
     categoryId: 2,
   },
 
@@ -168,7 +183,8 @@ const items = [
     stockQty: 9,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266131/graceshopper/download_h04mam.png",
     categoryId: 2,
   },
 
@@ -179,7 +195,8 @@ const items = [
     stockQty: 11,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266568/graceshopper/download_ctrxy6.png",
     categoryId: 2,
   },
 
@@ -190,7 +207,8 @@ const items = [
     stockQty: 14,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266094/graceshopper/istockphoto-514738978-612x612_pkqob0.jpg",
     categoryId: 2,
   },
 
@@ -201,7 +219,8 @@ const items = [
     stockQty: 27,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266121/graceshopper/istockphoto-108537899-612x612_e1mu5m.jpg",
     categoryId: 2,
   },
 
@@ -212,7 +231,8 @@ const items = [
     stockQty: 17,
     isFeatured: true,
     onSale: true,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265997/graceshopper/istockphoto-638005480-612x612_n0gyh4.jpg",
     categoryId: 2,
   },
   {
@@ -222,12 +242,14 @@ const items = [
     stockQty: 70,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265776/graceshopper/download_ck4bcc.png",
     categoryId: 3,
   },
   {
     name: "Foam Brush",
-    description: "2-in Foam flat general purpose brush",
+    description:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670265867/graceshopper/download_f5wako.png",
     price: 25,
     stockQty: 50,
     isFeatured: false,
@@ -243,7 +265,8 @@ const items = [
     stockQty: 50,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266236/graceshopper/download_kjavk1.png",
     categoryId: 4,
   },
 
@@ -255,7 +278,8 @@ const items = [
     stockQty: 46,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266049/graceshopper/download_ljdxjn.png",
     categoryId: 4,
   },
 
@@ -266,7 +290,8 @@ const items = [
     stockQty: 100,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266041/graceshopper/download_i4hmrq.png",
     categoryId: 5,
   },
   {
@@ -276,7 +301,8 @@ const items = [
     stockQty: 100,
     isFeatured: false,
     onSale: false,
-    imageUrl: "http://placeimg.com/640/480/any",
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266031/graceshopper/download_hqkugl.png",
     categoryId: 5,
   },
 ];
