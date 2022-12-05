@@ -287,7 +287,7 @@ const items = [
     isFeatured: false,
     onSale: false,
     imageUrl:
-      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266236/graceshopper/download_kjavk1.png",
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670277200/graceshopper/00553726_myp46t.webp",
     categoryId: 4,
   },
 
