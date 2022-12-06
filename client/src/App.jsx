@@ -23,7 +23,7 @@ function App() {
         <Route path="/items" element={<Items />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/categories/:categoryId" element={<Categories />} />
-        {/* <Route path="/mycart" element={<Cart />} /> */}
+        <Route path="/mycart" element={<Cart />} />
       </Routes>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
