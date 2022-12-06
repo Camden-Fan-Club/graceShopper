@@ -16,10 +16,17 @@ router.post(
     const iId = req.params.itemId;
     const oId = req.params.orderId;
     const { quantity } = req.body;
-    const createdItem = await prisma.order_Items.create({
-      data: { orderId: +oId, itemId: +iId, quantity: +quantity },
+    const checkOi = await prisma.order_Items.findUnique({
+      where: { orderId_itemId: { orderId: +oId, itemId: +iId } },
     });
-    res.send(createdItem);
+    if (checkOi) {
+      next({ name: "itemInCart", message: "Item already in cart!" });
+    } else {
+      const createdItem = await prisma.order_Items.create({
+        data: { orderId: +oId, itemId: +iId, quantity: +quantity },
+      });
+      res.send(createdItem);
+    }
   })
 );
 // PATCH quantity

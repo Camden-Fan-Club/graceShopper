@@ -52,7 +52,7 @@ model Items{
 model Order_Items{
 id Int @id @default(autoincrement())
 orderId Int
-itemId Int
+itemId Int 
 quantity Int? @default(1)
 orders Orders? @relation(fields: [orderId], references: [id])
 items Items? @relation(fields: [itemId], references: [id])

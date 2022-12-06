@@ -1,14 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import useCart from "../hooks/useCart";
 
 export default function Home() {
+  const [error, setError] = useState("");
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
-  const { addItemToCart, cart } = useCart();
+  const { addItemToCart, cart, fetchCart } = useCart();
   useEffect(() => {
     fetchItems();
+    fetchCart();
   }, []);
 
   const featuredItems = items.filter((item) => {
@@ -29,11 +31,16 @@ export default function Home() {
               <button
                 onClick={async () => {
                   console.log("cart", cart);
-                  await addItemToCart({
-                    itemId: item.id,
-                    orderId: cart.id,
-                    quantity: 1,
-                  });
+                  try {
+                    await addItemToCart({
+                      itemId: item.id,
+                      orderId: cart.id,
+                      quantity: 1,
+                    });
+                    console.log("ERROR", error);
+                  } catch (err) {
+                    setError(err.response.data.message);
+                  }
                 }}
               >
                 Add to Cart
@@ -41,6 +48,7 @@ export default function Home() {
             </div>
           );
         })}
+        {error && <h3>{error}</h3>}
       </div>
     </div>
   );
