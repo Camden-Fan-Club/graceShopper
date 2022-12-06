@@ -5,12 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CategoryDropdown from "./CategoryDropdown";
 import useAuth from "../hooks/useAuth";
+import useCart from "../hooks/useCart";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const { fetchCart } = useCart();
   const { selectedUser, fetchMe, logoutUser } = useAuth();
   useEffect(() => {
-    fetchMe();
+    fetchMe().then(() => {
+      fetchCart();
+    });
   }, []);
 
   return (

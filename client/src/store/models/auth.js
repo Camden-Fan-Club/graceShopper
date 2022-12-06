@@ -9,6 +9,7 @@ export const auth = {
   loginUser: thunk(async (actions, payload) => {
     console.log("payload in login", payload);
     const { data } = await axios.post("/routes/users/login", payload);
+    console.log("data after line 11", data);
     actions.setUser(data);
   }),
   createUser: thunk(async (actions, payload) => {

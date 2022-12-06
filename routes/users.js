@@ -162,12 +162,13 @@ router.get(
 );
 
 router.get(
-  "/:userId/cart",
+  "/me/cart",
+  authRequired,
   asyncErrorHandler(async (req, res, next) => {
     const { userId } = req.params;
     console.log("req body reg", req.body);
     const myCart = await prisma.orders.findFirst({
-      where: { userId: +userId, is_cart: true },
+      where: { userId: +req.user.id, is_cart: true },
       include: {
         order_items: {
           include: {
