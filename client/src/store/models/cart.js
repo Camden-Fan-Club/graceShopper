@@ -8,7 +8,6 @@ export const cart = {
   }),
 
   fetchCart: thunk(async (actions, payload) => {
-    console.log("PAYLOAD", payload);
     const { data } = await axios.get(`/routes/users/me/cart`);
     actions.setCart(data);
   }),
@@ -24,7 +23,16 @@ export const cart = {
     const { data } = await axios.get(`/routes/users/me/cart`);
     actions.setCart(data);
   }),
-  //UPDATE
 
+  //UPDATE
+  updateQuantity: thunk(async (actions, payload) => {
+    console.log("in patch model");
+    await axios.patch(
+      `/routes/order_items/${payload.itemId}/${payload.orderId}`,
+      { quantity: payload.quantity }
+    );
+    const { data } = await axios.get(`/routes/users/me/cart`);
+    actions.setCart(data);
+  }),
   //DELETE
 };
