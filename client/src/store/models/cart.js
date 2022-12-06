@@ -9,7 +9,7 @@ export const cart = {
 
   fetchCart: thunk(async (actions, payload) => {
     console.log("PAYLOAD", payload);
-    const { data } = await axios.get(`/routes/users/${payload.userId}/cart`);
+    const { data } = await axios.get(`/routes/users/me/cart`);
     actions.setCart(data);
   }),
   addItem: action((state, payload) => {

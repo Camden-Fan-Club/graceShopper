@@ -9,7 +9,7 @@ export default function Cart() {
 
   useEffect(() => {
     console.log("selecteduser in cart", selectedUser);
-    const userId = selectedUser.user.id;
+    const userId = selectedUser.id;
     fetchCart(userId);
   }, []);
   console.log(cart);

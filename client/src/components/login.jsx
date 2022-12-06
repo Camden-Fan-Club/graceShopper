@@ -3,24 +3,13 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import useCart from "../hooks/useCart";
 export default function Login() {
-  const { loginUser, selectedUser } = useAuth();
+  const { loginUser } = useAuth();
   const { fetchCart } = useCart();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await loginUser({ username, email, password });
-    // fetchCart -> Put in in easy peasy cart state
-    console.log("LOOOOK", selectedUser);
-    fetchCart({ userId: selectedUser.user.id });
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    navigate("/");
-  };
   return (
     <div>
       <h4>Login</h4>
@@ -28,9 +17,7 @@ export default function Login() {
         onSubmit={async (e) => {
           e.preventDefault();
           await loginUser({ username, email, password });
-          // fetchCart -> Put in in easy peasy cart state
-          console.log("LOOOOK", selectedUser);
-          fetchCart({ userId: selectedUser.user.id });
+          await fetchCart();
           setUsername("");
           setEmail("");
           setPassword("");
