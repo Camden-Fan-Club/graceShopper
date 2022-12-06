@@ -16,16 +16,18 @@ export default function Cart() {
 
   return (
     <div>
-      {/* {" "}
+      {" "}
       My Cart
-      {cart.data.order_items.map((item) => {
+      {cart.order_items.map((items) => {
+        const item = items.items;
         return (
           <div>
+            <img className="h-40 mt-0" src={item.imageUrl} />
             <h3>{item.name}</h3>
-            <h4>{item.quantity}</h4>
+            <h4>{items.quantity}</h4>
           </div>
         );
-      })} */}
+      })}
     </div>
   );
 }
