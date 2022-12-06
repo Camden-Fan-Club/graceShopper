@@ -4,7 +4,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import useCart from "../hooks/useCart";
-import { cart } from "../store/models/cart";
 
 export default function Categories() {
   const catIds = useParams();
@@ -44,15 +43,13 @@ export default function Categories() {
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
               <button
-                onClick={() => {
-                  addItemToCart({
+                onClick={async () => {
+                  console.log("cart", cart);
+                  await addItemToCart({
                     itemId: item.id,
                     orderId: cart.id,
+                    quantity: 1,
                   });
-                  console.log("ITEM ID", item.id);
-                  {
-                    console.log("orderId", orderId);
-                  }
                 }}
               >
                 Add to Cart

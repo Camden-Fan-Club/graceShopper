@@ -53,7 +53,7 @@ model Order_Items{
 id Int @id @default(autoincrement())
 orderId Int
 itemId Int
-quantity Int?
+quantity Int? @default(1)
 orders Orders? @relation(fields: [orderId], references: [id])
 items Items? @relation(fields: [itemId], references: [id])
 @@unique([orderId, itemId])
