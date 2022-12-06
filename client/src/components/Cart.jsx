@@ -17,9 +17,8 @@ export default function Cart() {
   return (
     <div>
       {/* {" "}
-      items
-      {cart.map((oI) => {
-        const item = oI.items;
+      My Cart
+      {cart.data.order_items.map((item) => {
         return (
           <div>
             <h3>{item.name}</h3>

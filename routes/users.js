@@ -72,7 +72,7 @@ router.post(
           },
         },
       });
-      res.send({ user, cart });
+      res.send(user);
     } else {
       next("invalid credentials");
     }

@@ -13,11 +13,11 @@ router.get(
 router.post(
   "/:itemId/:orderId",
   asyncErrorHandler(async (req, res, next) => {
-    const iId = +req.params.itemId;
-    const oId = +req.params.orderId;
+    const iId = req.params.itemId;
+    const oId = req.params.orderId;
     const { quantity } = req.body;
     const createdItem = await prisma.order_Items.create({
-      data: { orderId: oId, itemId: iId, quantity: quantity },
+      data: { orderId: +oId, itemId: +iId, quantity: +quantity },
     });
     res.send(createdItem);
   })

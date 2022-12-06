@@ -3,12 +3,15 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import useCart from "../hooks/useCart";
+import { cart } from "../store/models/cart";
 
 export default function Categories() {
   const catIds = useParams();
   const [catId, setCatId] = useState("");
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
+  const { addItemToCart, cart } = useCart();
   const catDict = {
     1: "Outdoor Paint",
     2: "Tape and Accessories",
@@ -40,6 +43,20 @@ export default function Categories() {
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
+              <button
+                onClick={() => {
+                  addItemToCart({
+                    itemId: item.id,
+                    orderId: cart.id,
+                  });
+                  console.log("ITEM ID", item.id);
+                  {
+                    console.log("orderId", orderId);
+                  }
+                }}
+              >
+                Add to Cart
+              </button>
             </div>
           );
         })}
