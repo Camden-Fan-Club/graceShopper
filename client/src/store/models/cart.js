@@ -35,4 +35,12 @@ export const cart = {
     actions.setCart(data);
   }),
   //DELETE
+  deleteItem: thunk(async (actions, payload) => {
+    console.log("item delete");
+    await axios.delete(
+      `/routes/order_items/${payload.itemId}/${payload.orderId}`
+    );
+    const { data } = await axios.get(`/routes/users/me/cart`);
+    actions.setCart(data);
+  }),
 };

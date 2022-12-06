@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import React from "react";
-import useAuth from "../hooks/useAuth";
+
 import useCart from "../hooks/useCart";
-import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
-  const { cart, fetchCart, updateQuantity } = useCart();
-
-  const navigate = useNavigate();
-
+  const { cart, fetchCart, updateQuantity, deleteItem } = useCart();
+  let cartTotal = 0;
   useEffect(() => {
     fetchCart();
   }, []);
@@ -20,6 +17,7 @@ export default function Cart() {
       My Cart
       {cart?.order_items?.map((orderItem) => {
         const item = orderItem.items;
+        cartTotal += item.price * orderItem.quantity;
         return (
           <div>
             <img className="h-40 mt-0" src={item.imageUrl} />
@@ -51,9 +49,21 @@ export default function Cart() {
               </select>
               <button type="submit">Update Quantity</button>
             </form>
+
+            <button
+              onClick={() => {
+                deleteItem({
+                  itemId: item.id,
+                  orderId: cart.id,
+                });
+              }}
+            >
+              Delete From Cart
+            </button>
           </div>
         );
       })}
+      <h6>total:${cartTotal}</h6>
     </div>
   );
 }

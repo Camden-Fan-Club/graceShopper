@@ -8,9 +8,10 @@ import useCart from "../hooks/useCart";
 export default function Categories() {
   const catIds = useParams();
   const [catId, setCatId] = useState("");
+  const [error, setError] = useState("");
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
-  const { addItemToCart, cart } = useCart();
+  const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
     1: "Outdoor Paint",
     2: "Tape and Accessories",
@@ -21,6 +22,7 @@ export default function Categories() {
 
   useEffect(() => {
     fetchItems();
+    fetchCart();
   }, []);
 
   useEffect(() => {
@@ -45,11 +47,16 @@ export default function Categories() {
               <button
                 onClick={async () => {
                   console.log("cart", cart);
-                  await addItemToCart({
-                    itemId: item.id,
-                    orderId: cart.id,
-                    quantity: 1,
-                  });
+                  try {
+                    await addItemToCart({
+                      itemId: item.id,
+                      orderId: cart.id,
+                      quantity: 1,
+                    });
+                    console.log("ERROR", error);
+                  } catch (err) {
+                    setError(err.response.data.message);
+                  }
                 }}
               >
                 Add to Cart
@@ -57,6 +64,7 @@ export default function Categories() {
             </div>
           );
         })}
+        {error && <h3>{error}</h3>}
       </div>
     </>
   );

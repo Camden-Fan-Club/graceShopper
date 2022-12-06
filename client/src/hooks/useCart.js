@@ -9,13 +9,13 @@ export default function useCart() {
   const updateQuantity = useStoreActions(
     (actions) => actions.cart.updateQuantity
   );
+  const deleteItem = useStoreActions((actions) => actions.cart.deleteItem);
 
-  //UPDATE ITEM(quantity) IN CART
-  //DELETE ITEM FROM CART
   return {
     fetchCart,
     cart,
     addItemToCart,
     updateQuantity,
+    deleteItem,
   };
 }
