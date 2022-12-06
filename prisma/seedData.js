@@ -267,6 +267,40 @@ const items = [
     categoryId: 3,
   },
   {
+    name: "2in. Polyester Angle Paint Brush (Sash Brush)",
+    description:
+      "For use in smaller spaces.  Produces smoother finish with reduced brush marks.",
+    price: 8,
+    stockQty: 70,
+    isFeatured: false,
+    onSale: false,
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670363094/graceshopper/15054817_cixrcx.webp",
+    categoryId: 3,
+  },
+  {
+    name: "3in. Natural Bristle Flat Paint Brush (Chip Brush)",
+    description: "Used for trim work.",
+    price: 2,
+    stockQty: 70,
+    isFeatured: false,
+    onSale: false,
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670363378/graceshopper/04230849_karq4f.webp",
+    categoryId: 3,
+  },
+  {
+    name: "8.5in Oval Paint Brush (Faux Finish Brush)",
+    description: "Brush can be hand held or pole mounted.",
+    price: 10,
+    stockQty: 70,
+    isFeatured: false,
+    onSale: false,
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670363657/graceshopper/07947285_vxg8y9.webp",
+    categoryId: 3,
+  },
+  {
     name: "Foam Brush",
     description: "2in. Foam Flat Paint Brush for general purposes.",
     price: 25,
@@ -289,6 +323,18 @@ const items = [
       "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670277200/graceshopper/00553726_myp46t.webp",
     categoryId: 4,
   },
+  {
+    name: "8-Piece Microfiber Paint Roller Kit",
+    description:
+      "8-piece kits includes 1 brush, 2 roller covers, wire frame, mini roller with cover, paint tray, and tray liner.",
+    price: 19,
+    stockQty: 40,
+    isFeatured: false,
+    onSale: false,
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670364427/graceshopper/15725907_o4cy78.webp",
+    categoryId: 4,
+  },
 
   {
     name: "Wooster Roller",
@@ -300,6 +346,18 @@ const items = [
     onSale: false,
     imageUrl:
       "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670266049/graceshopper/download_ljdxjn.png",
+    categoryId: 4,
+  },
+  {
+    name: "PaintStick EZ Roller Inner-Fed Paint Roller",
+    description:
+      "Extended reach reduces the need for ladders to paint tall walls and ceilings with ease.",
+    price: 35,
+    stockQty: 40,
+    isFeatured: false,
+    onSale: false,
+    imageUrl:
+      "https://res.cloudinary.com/dr0oxkbju/image/upload/v1670364256/graceshopper/44394292_e6q1xv.webp",
     categoryId: 4,
   },
 
