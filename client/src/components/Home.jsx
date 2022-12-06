@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
+import useCart from "../hooks/useCart";
 
 export default function Home() {
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
-
+  const { addItemToCart, cart } = useCart();
   useEffect(() => {
     fetchItems();
   }, []);
@@ -25,6 +26,18 @@ export default function Home() {
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
+              <button
+                onClick={async () => {
+                  console.log("cart", cart);
+                  await addItemToCart({
+                    itemId: item.id,
+                    orderId: cart.id,
+                    quantity: 1,
+                  });
+                }}
+              >
+                Add to Cart
+              </button>
             </div>
           );
         })}
