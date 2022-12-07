@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import CategoryDropdown from "./CategoryDropdown";
 import useAuth from "../hooks/useAuth";
 import useCart from "../hooks/useCart";
+import Cart from "./Cart";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { fetchCart } = useCart();
+  const { fetchCart, cart } = useCart();
   const { selectedUser, fetchMe, logoutUser } = useAuth();
   useEffect(() => {
     fetchMe().then(() => {
@@ -17,11 +18,17 @@ export default function Navbar() {
     });
   }, []);
 
+  let amount = 0;
+
+  cart?.order_items?.map((item) => {
+    amount += item.quantity;
+  });
+
   return (
     <div class="flex justify-evenly items-center bg-slate-700">
       <CategoryDropdown />
       <Link to="/home">Home</Link>
-      <Link>Sales</Link>
+      <Link to="/sale">Sales</Link>
       <Link>My Orders</Link>
       {selectedUser.username === "Guest" ? (
         <>
@@ -29,7 +36,8 @@ export default function Navbar() {
           <Link to="/register">Register</Link>
         </>
       ) : null}
-      <Link to="/mycart">My Cart</Link>
+      <Link to="/mycart">My Cart ({amount})</Link>
+
       {selectedUser.username !== "Guest" ? (
         <>
           <Button

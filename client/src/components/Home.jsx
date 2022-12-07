@@ -38,6 +38,7 @@ export default function Home() {
                       quantity: 1,
                     });
                     console.log("ERROR", error);
+                    setError("");
                   } catch (err) {
                     setError(err.response.data.message);
                   }
