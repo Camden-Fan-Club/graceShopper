@@ -25,4 +25,15 @@ export const items = {
     const { data } = await axios.get(`/routes/items/${payload}`);
     actions.selectItem(data);
   }),
+  editItem: thunk(async (actions, payload) => {
+    const { data } = await axios.patch(`/routes/items/${payload.itemId}`, {
+      itemId: payload.itemId,
+      title: payload.title,
+      description: payload.description,
+      price: payload.price,
+      isFeatured: payload.isFeatured,
+      onSale: payload.onSale,
+    });
+    actions.setItems(data);
+  }),
 };
