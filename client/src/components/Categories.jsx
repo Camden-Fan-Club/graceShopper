@@ -16,7 +16,6 @@ export default function Categories() {
   const selectedUser = useAuth();
   const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
-
   const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
     1: "Outdoor Paint",

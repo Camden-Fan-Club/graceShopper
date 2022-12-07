@@ -31,9 +31,16 @@ export const items = {
   }),
   deleteItem: thunk(async (actions, payload) => {
     await axios.delete(`/routes/items/${payload}`);
+<<<<<<< HEAD
+    const { data } = await axios.get("/routes/items");
+    actions.setItems(data);
+  }),
+
+=======
     const { data } = await axios.get(`/routes/items/`);
     actions.setItems(data);
   }),
+>>>>>>> main
   editItem: thunk(async (actions, payload) => {
     await axios.patch(`/routes/items/${payload.itemId}`, {
       itemId: payload.itemId,

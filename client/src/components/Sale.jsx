@@ -10,7 +10,6 @@ export default function Sale() {
   const deleteItem = useStoreActions((actions) => actions.items.deleteItem);
   const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
-
   const { addItemToCart, cart, fetchCart } = useCart();
   const selectedUser = useAuth();
   const [error, setError] = useState("");
@@ -47,7 +46,7 @@ export default function Sale() {
                         }}
                       >
                         Edit Item
-                      </button>{" "}
+                      </button>
                     </>
                   ) : null)
                 }
