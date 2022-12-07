@@ -3,8 +3,10 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import useCart from "../hooks/useCart";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Sale() {
+  const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
   const { addItemToCart, cart, fetchCart } = useCart();

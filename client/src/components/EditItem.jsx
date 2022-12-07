@@ -2,16 +2,40 @@ import { useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function EditItem() {
+  const editItem = useStoreActions((actions) => actions.items.editItem);
+  const fetchItem = useStoreActions((actions) => actions.items.fetchItem);
+  const selectedItem = useStoreState((state) => state.items.selectedItem);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState();
-  const [isFeatured, setIsFeatured] = useState();
-  const [onSale, setOnSale] = useState();
+  const [price, setPrice] = useState("");
+  const [isFeatured, setIsFeatured] = useState(false);
+  const [onSale, setOnSale] = useState(false);
   const navigate = useNavigate();
   const { itemId } = useParams();
-  const editItem = useStoreActions((actions) => actions.items.editItem);
+
+  const id = +itemId;
+  const prevState = {
+    name: selectedItem.name,
+    description: selectedItem.description,
+    price: selectedItem.price,
+    isFeatured: selectedItem.isFeatured,
+    onSale: selectedItem.onSale,
+  };
+
+  useEffect(() => {
+    fetchItem(id);
+  }, []);
+
+  useEffect(() => {
+    setName(selectedItem?.name);
+    setDescription(selectedItem?.description);
+    setPrice(selectedItem?.price);
+  }, [selectedItem]);
+
+  console.log("prev state", prevState);
 
   return (
     <form
@@ -45,7 +69,7 @@ export default function EditItem() {
         placeholder="Price"
         value={price}
         type="text"
-        onChange={(e) => setPrice(e.target.value)}
+        onChange={(e) => setPrice(+e.target.value)}
       />
       <label>
         Make item featured?
