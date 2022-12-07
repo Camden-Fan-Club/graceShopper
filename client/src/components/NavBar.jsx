@@ -29,7 +29,7 @@ export default function Navbar() {
       <CategoryDropdown />
       <Link to="/home">Home</Link>
       <Link to="/sale">Sales</Link>
-      <Link>My Orders</Link>
+      <Link to="/myOrders">My Orders</Link>
       {selectedUser.username === "Guest" ? (
         <>
           <Link to="/login">Login</Link>

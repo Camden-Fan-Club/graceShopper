@@ -6,10 +6,10 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export default function Sale() {
-  const navigate = useNavigate();
-  const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
   const deleteItem = useStoreActions((actions) => actions.items.deleteItem);
+  const navigate = useNavigate();
+  const items = useStoreState((state) => state.items.data);
   const { addItemToCart, cart, fetchCart } = useCart();
   const selectedUser = useAuth();
   const [error, setError] = useState("");

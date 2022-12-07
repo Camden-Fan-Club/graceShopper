@@ -11,6 +11,17 @@ router.get(
 );
 
 router.get(
+  "/me",
+  asyncErrorHandler(async (req, res, next) => {
+    const myOrders = await prisma.orders.findMany({
+      where: { userId: req.user.id },
+    });
+
+    res.send(myOrders);
+  })
+);
+
+router.get(
   "/:orderId",
   asyncErrorHandler(async (req, res, next) => {
     const singleOrder = await prisma.orders.findUnique({

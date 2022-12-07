@@ -8,21 +8,21 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export default function Categories() {
+  const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
+  const deleteItem = useStoreActions((actions) => actions.items.deleteItem);
   const catIds = useParams();
   const [catId, setCatId] = useState("");
   const [error, setError] = useState("");
   const selectedUser = useAuth();
   const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
-  const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
-  const deleteItem = useStoreActions((actions) => actions.items.deleteItem);
   const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
     1: "Outdoor Paint",
-    2: "Tape and Accessories",
+    2: "Indoor Paint",
     3: "Brushes",
     4: "Rollers",
-    5: "Indoor Paint",
+    5: "Tape and Accessories",
   };
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function Categories() {
                       }}
                     >
                       Edit Item
-                    </button>
+                    </button>{" "}
                   </>
                 ) : null)
               }
