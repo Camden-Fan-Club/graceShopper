@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import Sale from "./components/Sale";
 import Checkout from "./components/Checkout";
 import EditItem from "./components/EditItem";
+import MyOrders from "./components/MyOrders";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,7 @@ function App() {
         <Route path="/sale" element={<Sale />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/edit/:itemId" element={<EditItem />} />
+        <Route path="/myOrders" element={<MyOrders />} />
       </Routes>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>

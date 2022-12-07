@@ -15,7 +15,7 @@ export default function Categories() {
   const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
-
+  const deleteItem = useStoreActions((actions) => actions.items.deleteItem);
   const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
     1: "Outdoor Paint",
@@ -51,13 +51,22 @@ export default function Categories() {
               <p>${item.price}</p>
               {
                 (selectedUser.is_admin = true ? (
-                  <button
-                    onClick={async () => {
-                      navigate(`/edit/${item.id}`);
-                    }}
-                  >
-                    Edit Item
-                  </button>
+                  <>
+                    <button
+                      onClick={async () => {
+                        deleteItem(item.id);
+                      }}
+                    >
+                      Delete Item
+                    </button>
+                    <button
+                      onClick={async () => {
+                        navigate(`/edit/${item.id}`);
+                      }}
+                    >
+                      Edit Item
+                    </button>
+                  </>
                 ) : null)
               }
               <button
