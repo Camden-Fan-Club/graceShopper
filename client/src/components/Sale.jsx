@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import useCart from "../hooks/useCart";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Sale() {
+  const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
   const { addItemToCart, cart, fetchCart } = useCart();
+  const selectedUser = useAuth();
   const [error, setError] = useState("");
   useEffect(() => {
     fetchItems();
@@ -25,6 +29,17 @@ export default function Sale() {
                 <p>{item.description}</p>
                 <img className="h-40 mt-0" src={item.imageUrl} />
                 <p>${item.price}</p>
+                {
+                  (selectedUser.is_admin = true ? (
+                    <button
+                      onClick={async () => {
+                        navigate(`/edit/${item.id}`);
+                      }}
+                    >
+                      Edit Item
+                    </button>
+                  ) : null)
+                }
                 <button
                   onClick={async () => {
                     console.log("cart", cart);
