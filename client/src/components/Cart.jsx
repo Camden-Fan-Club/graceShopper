@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import useCart from "../hooks/useCart";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 
 export default function Cart() {
   const { cart, fetchCart, updateQuantity, deleteItem } = useCart();
   let cartTotal = 0;
+  const navigate = useNavigate();
   useEffect(() => {
     fetchCart();
   }, []);
@@ -64,6 +67,13 @@ export default function Cart() {
         );
       })}
       <h6>total:${cartTotal}</h6>
+      <button
+        onClick={() => {
+          navigate("/checkout");
+        }}
+      >
+        Checkout
+      </button>
     </div>
   );
 }

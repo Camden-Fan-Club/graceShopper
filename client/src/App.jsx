@@ -9,6 +9,8 @@ import Register from "./components/Register";
 import Login from "./components/login";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
+import Sale from "./components/Sale";
+import Checkout from "./components/Checkout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +26,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/categories/:categoryId" element={<Categories />} />
         <Route path="/mycart" element={<Cart />} />
+        <Route path="/sale" element={<Sale />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>

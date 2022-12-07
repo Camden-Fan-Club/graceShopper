@@ -54,6 +54,7 @@ export default function Categories() {
                       quantity: 1,
                     });
                     console.log("ERROR", error);
+                    setError("");
                   } catch (err) {
                     setError(err.response.data.message);
                   }
