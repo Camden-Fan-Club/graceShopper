@@ -43,4 +43,13 @@ export const cart = {
     const { data } = await axios.get(`/routes/users/me/cart`);
     actions.setCart(data);
   }),
+
+  checkoutCart: thunk(async (actions, payload) => {
+    console.log("PAYLOAD", payload);
+    await axios.patch(`routes/orders/${payload.orderId}`, {
+      userId: payload.userId,
+    });
+    const { data } = await axios.get(`/routes/users/me/cart`);
+    actions.setCart(data);
+  }),
 };

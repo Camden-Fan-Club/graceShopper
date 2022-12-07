@@ -3,7 +3,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import useCart from "../hooks/useCart";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 
 export default function Cart() {
   const { cart, fetchCart, updateQuantity, deleteItem } = useCart();

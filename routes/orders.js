@@ -44,14 +44,26 @@ router.post(
 router.patch(
   "/:orderId",
   asyncErrorHandler(async (req, res, next) => {
-    const { userId, status, is_cart } = req.body;
+    const { userId } = req.body;
     const updatedOrder = await prisma.orders.update({
       where: {
         id: +req.params.orderId,
       },
-      data: { userId, status, is_cart },
+      data: { userId: userId, status: "confirmed", is_cart: false },
     });
-
+    await prisma.orders.create({
+      data: { userId: userId, status: "pending", is_cart: true },
+    });
+    const cart = await prisma.orders.findMany({
+      where: { userId: userId, is_cart: true },
+      include: {
+        order_items: {
+          include: {
+            items: true,
+          },
+        },
+      },
+    });
     res.send(updatedOrder);
   })
 );
