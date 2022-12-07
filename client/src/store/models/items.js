@@ -29,6 +29,11 @@ export const items = {
     const { data } = await axios.get(`/routes/items/${payload}`);
     actions.selectItem(data);
   }),
+  deleteItem: thunk(async (actions, payload) => {
+    await axios.delete(`/routes/items/${payload}`);
+    const { data } = await axios.get(`/routes/items/`);
+    actions.setItems(data);
+  }),
   editItem: thunk(async (actions, payload) => {
     await axios.patch(`/routes/items/${payload.itemId}`, {
       itemId: payload.itemId,
@@ -39,6 +44,6 @@ export const items = {
       onSale: payload.onSale,
     });
     const { data } = await axios.get(`/routes/items/`);
-    actions.selectItem(data);
+    actions.setItems(data);
   }),
 };

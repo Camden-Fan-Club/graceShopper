@@ -17,13 +17,6 @@ export default function EditItem() {
   const { itemId } = useParams();
 
   const id = +itemId;
-  const prevState = {
-    name: selectedItem.name,
-    description: selectedItem.description,
-    price: selectedItem.price,
-    isFeatured: selectedItem.isFeatured,
-    onSale: selectedItem.onSale,
-  };
 
   useEffect(() => {
     fetchItem(id);
@@ -34,8 +27,6 @@ export default function EditItem() {
     setDescription(selectedItem?.description);
     setPrice(selectedItem?.price);
   }, [selectedItem]);
-
-  console.log("prev state", prevState);
 
   return (
     <form

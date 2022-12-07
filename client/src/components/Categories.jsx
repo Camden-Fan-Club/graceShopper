@@ -8,21 +8,22 @@ import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export default function Categories() {
+  const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
+  const deleteItem = useStoreActions((actions) => actions.items.deleteItem);
   const catIds = useParams();
   const [catId, setCatId] = useState("");
   const [error, setError] = useState("");
   const selectedUser = useAuth();
   const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
-  const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
 
   const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
     1: "Outdoor Paint",
-    2: "Tape and Accessories",
+    2: "Indoor Paint",
     3: "Brushes",
     4: "Rollers",
-    5: "Indoor Paint",
+    5: "Tape and Accessories",
   };
 
   useEffect(() => {
@@ -51,13 +52,22 @@ export default function Categories() {
               <p>${item.price}</p>
               {
                 (selectedUser.is_admin = true ? (
-                  <button
-                    onClick={async () => {
-                      navigate(`/edit/${item.id}`);
-                    }}
-                  >
-                    Edit Item
-                  </button>
+                  <>
+                    <button
+                      onClick={async () => {
+                        deleteItem(item.id);
+                      }}
+                    >
+                      Delete Item
+                    </button>
+                    <button
+                      onClick={async () => {
+                        navigate(`/edit/${item.id}`);
+                      }}
+                    >
+                      Edit Item
+                    </button>{" "}
+                  </>
                 ) : null)
               }
               <button
