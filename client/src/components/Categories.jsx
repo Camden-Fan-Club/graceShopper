@@ -4,13 +4,18 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import useCart from "../hooks/useCart";
+import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Categories() {
   const catIds = useParams();
   const [catId, setCatId] = useState("");
   const [error, setError] = useState("");
+  const selectedUser = useAuth();
+  const navigate = useNavigate();
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
+
   const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
     1: "Outdoor Paint",
@@ -44,6 +49,17 @@ export default function Categories() {
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
+              {
+                (selectedUser.is_admin = true ? (
+                  <button
+                    onClick={async () => {
+                      navigate(`/edit/${item.id}`);
+                    }}
+                  >
+                    Edit Item
+                  </button>
+                ) : null)
+              }
               <button
                 onClick={async () => {
                   console.log("cart", cart);

@@ -65,8 +65,7 @@ router.post(
 router.patch(
   "/:itemId",
   asyncErrorHandler(async (req, res, next) => {
-    const { name, description, price, stockQty, isFeatured, onSale, imageUrl } =
-      req.body;
+    const { name, description, price, isFeatured, onSale } = req.body;
     const updatedItem = await prisma.items.update({
       where: {
         id: +req.params.itemId,
@@ -75,10 +74,8 @@ router.patch(
         name,
         description,
         price: +price,
-        stockQty: +stockQty,
         isFeatured,
         onSale,
-        imageUrl,
       },
     });
     res.send(updatedItem);

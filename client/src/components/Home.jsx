@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import useCart from "../hooks/useCart";
+import useAuth from "../hooks/useAuth";
 
 export default function Home() {
   const [error, setError] = useState("");
+  const selectedUser = useAuth;
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
   const { addItemToCart, cart, fetchCart } = useCart();
@@ -13,7 +15,7 @@ export default function Home() {
     fetchCart();
   }, []);
 
-  const featuredItems = items.filter((item) => {
+  const featuredItems = items?.filter((item) => {
     return item.isFeatured;
   });
 
@@ -28,6 +30,17 @@ export default function Home() {
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
+              {
+                (selectedUser.is_admin = true ? (
+                  <button
+                    onClick={async () => {
+                      navigate(`/edit/${item.id}`);
+                    }}
+                  >
+                    Edit Item
+                  </button>
+                ) : null)
+              }
               <button
                 onClick={async () => {
                   console.log("cart", cart);
