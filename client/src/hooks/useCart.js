@@ -10,12 +10,13 @@ export default function useCart() {
     (actions) => actions.cart.updateQuantity
   );
   const deleteItem = useStoreActions((actions) => actions.cart.deleteItem);
-
+  const checkoutCart = useStoreActions((actions) => actions.cart.checkoutCart);
   return {
     fetchCart,
     cart,
     addItemToCart,
     updateQuantity,
     deleteItem,
+    checkoutCart,
   };
 }
