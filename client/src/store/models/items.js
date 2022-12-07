@@ -7,6 +7,10 @@ export const items = {
   setItems: action((state, payload) => {
     state.data = payload;
   }),
+  selectItem: action((state, payload) => {
+    state.selectedItem = payload;
+  }),
+
   fetchItems: thunk(async (actions, payload) => {
     const { data } = await axios.get("/routes/items");
     actions.setItems(data);
@@ -26,7 +30,7 @@ export const items = {
     actions.selectItem(data);
   }),
   editItem: thunk(async (actions, payload) => {
-    const { data } = await axios.patch(`/routes/items/${payload.itemId}`, {
+    await axios.patch(`/routes/items/${payload.itemId}`, {
       itemId: payload.itemId,
       title: payload.title,
       description: payload.description,
@@ -34,6 +38,7 @@ export const items = {
       isFeatured: payload.isFeatured,
       onSale: payload.onSale,
     });
-    actions.setItems(data);
+    const { data } = await axios.get(`/routes/items/`);
+    actions.selectItem(data);
   }),
 };

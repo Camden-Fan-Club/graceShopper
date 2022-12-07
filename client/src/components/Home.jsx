@@ -3,13 +3,16 @@ import { useStoreState, useStoreActions } from "easy-peasy";
 import React from "react";
 import useCart from "../hooks/useCart";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [error, setError] = useState("");
-  const selectedUser = useAuth;
+  const navigate = useNavigate();
+  const selectedUser = useAuth();
   const items = useStoreState((state) => state.items.data);
   const fetchItems = useStoreActions((actions) => actions.items.fetchItems);
   const { addItemToCart, cart, fetchCart } = useCart();
+
   useEffect(() => {
     fetchItems();
     fetchCart();
