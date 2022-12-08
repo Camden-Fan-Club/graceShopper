@@ -26,10 +26,10 @@ export default function Navbar() {
 
   return (
     <div class="flex justify-evenly items-center bg-slate-700 mb-6">
+      <h3 class="text-white ">Fresh Coats</h3>
       <CategoryDropdown />
       <Link to="/home">Home</Link>
       <Link to="/sale">Sales</Link>
-      <Link to="/myOrders">My Orders</Link>
       {selectedUser.username === "Guest" ? (
         <>
           <Link to="/login">Login</Link>
@@ -40,6 +40,7 @@ export default function Navbar() {
 
       {selectedUser.username !== "Guest" ? (
         <>
+          <Link to="/myOrders">My Orders</Link>
           <Button
             onClick={() => {
               logoutUser();

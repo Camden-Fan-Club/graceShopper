@@ -20,7 +20,7 @@ export default function Sale() {
   return (
     <div>
       {" "}
-      <div class="flex justify-center">Sale Items </div>
+      <h3 class="flex justify-center">For Sale </h3>
       <div class="grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
         {items.map((item) => {
           if (item.onSale) {

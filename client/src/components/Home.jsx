@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <h3 class="flex justify-center"> featuredItems</h3>
+      <h3 class="flex justify-center"> Featured Items</h3>
       <div class="grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
         {featuredItems.map((item) => {
           return (
