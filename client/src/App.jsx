@@ -18,7 +18,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App bg-neutral-200">
+    <div className="App bg-stone-100">
       <NavBar />
       <Routes>
         <Route path="home" element={<Home />} />
@@ -33,12 +33,6 @@ function App() {
         <Route path="/edit/:itemId" element={<EditItem />} />
         <Route path="/myOrders" element={<MyOrders />} />
       </Routes>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          {" "}
-          amount of paint {count}
-        </button>
-      </div>
     </div>
   );
 }

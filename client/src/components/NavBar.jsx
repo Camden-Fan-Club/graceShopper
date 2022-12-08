@@ -25,7 +25,7 @@ export default function Navbar() {
   });
 
   return (
-    <div class="flex justify-evenly items-center bg-slate-700">
+    <div class="flex justify-evenly items-center bg-slate-700 mb-6">
       <CategoryDropdown />
       <Link to="/home">Home</Link>
       <Link to="/sale">Sales</Link>
