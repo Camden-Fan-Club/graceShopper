@@ -18,8 +18,8 @@ export default function Categories() {
   const items = useStoreState((state) => state.items.data);
   const { addItemToCart, cart, fetchCart } = useCart();
   const catDict = {
-    1: "Outdoor Paint",
-    2: "Indoor Paint",
+    1: "Exterior Paint",
+    2: "Interior Paint",
     3: "Brushes",
     4: "Rollers",
     5: "Tape and Accessories",
