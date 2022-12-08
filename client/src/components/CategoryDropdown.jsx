@@ -19,7 +19,7 @@ export default function CategoryDropdown() {
             navigate("/categories/1");
           }}
         >
-          Outdoor Paint
+          Exterior Paint
         </Dropdown.Item>
         <Dropdown.Item
           className="noBull"
@@ -27,7 +27,7 @@ export default function CategoryDropdown() {
             navigate("/categories/2");
           }}
         >
-          Tape and Accessories
+          Interior Paint
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => {
@@ -48,7 +48,7 @@ export default function CategoryDropdown() {
             navigate("/categories/5");
           }}
         >
-          Interior Paint
+          Tape and Accessories
         </Dropdown.Item>
       </DropdownButton>
     </div>
