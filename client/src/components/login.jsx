@@ -11,8 +11,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h4>Login</h4>
+    <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
+      <h4 class="flex justify-center m-8">Login</h4>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
@@ -24,25 +24,44 @@ export default function Login() {
           navigate("/");
         }}
       >
+        <div class="flex flex-wrap -mx-3 mb-6 ">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              for="grid-first-name"
+              placeholder="name"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div class="w-full md:w-1/2 px-3">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              for="grid-last-name"
+              placeholder="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        </div>
         <input
-          placeholder="name"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
+          class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+          for="grid-password"
           placeholder="email"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <div className="flex items-center mt-3 justify-center">
+          <button
+            class="bg-gray-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
