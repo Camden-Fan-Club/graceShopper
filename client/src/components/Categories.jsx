@@ -49,7 +49,8 @@ export default function Categories() {
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
-              {selectedUser.is_admin == true ? (
+              {selectedUser.selectedUser.username == "Guest" ||
+              selectedUser.selectedUser.is_admin == false ? null : (
                 <>
                   <button
                     onClick={async () => {
@@ -66,7 +67,7 @@ export default function Categories() {
                     Edit Item
                   </button>{" "}
                 </>
-              ) : null}
+              )}
               <button
                 onClick={async () => {
                   console.log("cart", cart);

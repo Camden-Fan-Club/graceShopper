@@ -30,7 +30,9 @@ export default function Sale() {
                 <p>{item.description}</p>
                 <img className="h-40 mt-0" src={item.imageUrl} />
                 <p>${item.price}</p>
-                {selectedUser.is_admin == true ? (
+                {console.log(selectedUser)}
+                {selectedUser.selectedUser.username == "Guest" ||
+                selectedUser.selectedUser.is_admin == false ? null : (
                   <>
                     <button
                       onClick={async () => {
@@ -47,7 +49,7 @@ export default function Sale() {
                       Edit Item
                     </button>
                   </>
-                ) : null}
+                )}
                 <button
                   onClick={async () => {
                     console.log("cart", cart);
