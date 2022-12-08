@@ -20,7 +20,7 @@ export default function Sale() {
   return (
     <div>
       {" "}
-      <h3 class="flex justify-center">For Sale </h3>
+      <h3 class="flex justify-center">For Sale</h3>
       <div class="grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
         {items.map((item) => {
           if (item.onSale) {
@@ -30,26 +30,24 @@ export default function Sale() {
                 <p>{item.description}</p>
                 <img className="h-40 mt-0" src={item.imageUrl} />
                 <p>${item.price}</p>
-                {
-                  (selectedUser.is_admin = true ? (
-                    <>
-                      <button
-                        onClick={async () => {
-                          deleteItem(item.id);
-                        }}
-                      >
-                        Delete Item
-                      </button>
-                      <button
-                        onClick={async () => {
-                          navigate(`/edit/${item.id}`);
-                        }}
-                      >
-                        Edit Item
-                      </button>
-                    </>
-                  ) : null)
-                }
+                {selectedUser.is_admin == true ? (
+                  <>
+                    <button
+                      onClick={async () => {
+                        deleteItem(item.id);
+                      }}
+                    >
+                      Delete Item
+                    </button>
+                    <button
+                      onClick={async () => {
+                        navigate(`/edit/${item.id}`);
+                      }}
+                    >
+                      Edit Item
+                    </button>
+                  </>
+                ) : null}
                 <button
                   onClick={async () => {
                     console.log("cart", cart);

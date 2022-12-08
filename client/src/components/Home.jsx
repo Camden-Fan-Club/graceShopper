@@ -34,26 +34,24 @@ export default function Home() {
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
-              {
-                (selectedUser.is_admin = true ? (
-                  <>
-                    <button
-                      onClick={async () => {
-                        deleteItem(item.id);
-                      }}
-                    >
-                      Delete Item
-                    </button>
-                    <button
-                      onClick={async () => {
-                        navigate(`/edit/${item.id}`);
-                      }}
-                    >
-                      Edit Item
-                    </button>
-                  </>
-                ) : null)
-              }
+              {selectedUser.is_admin == true ? (
+                <>
+                  <button
+                    onClick={async () => {
+                      deleteItem(item.id);
+                    }}
+                  >
+                    Delete Item
+                  </button>
+                  <button
+                    onClick={async () => {
+                      navigate(`/edit/${item.id}`);
+                    }}
+                  >
+                    Edit Item
+                  </button>
+                </>
+              ) : null}
               <button
                 onClick={async () => {
                   console.log("cart", cart);
