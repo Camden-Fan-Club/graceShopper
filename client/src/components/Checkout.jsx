@@ -17,13 +17,53 @@ export default function Checkout() {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
-      <input placeholder="Card Number" type="text"></input>
-      <input placeholder="Expiration" type="text"></input>
-      <input placeholder="CVV" type="text"></input>
-      <input placeholder="Address" type="text"></input>
-      <input placeholder="Zip Code" type="text"></input>
-      <button type="submit">Confirm Purchase</button>
-    </form>
+    <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <div class="flex flex-wrap -mx-3 mb-6 ">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              placeholder="Card Number"
+              type="text"
+            ></input>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              placeholder="Expiration"
+              type="text"
+            ></input>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              placeholder="CVV"
+              type="text"
+            ></input>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              placeholder="Address"
+              type="text"
+            ></input>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <input
+              class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
+              placeholder="Zip Code"
+              type="text"
+            ></input>
+          </div>
+        </div>
+
+        <button
+          class="bg-gray-600 hover:bg-bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Confirm Purchase
+        </button>
+      </form>
+    </div>
   );
 }
