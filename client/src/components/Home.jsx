@@ -26,10 +26,10 @@ export default function Home() {
   return (
     <>
       <h3 class="flex justify-center"> Featured Items</h3>
-      <div class="grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
+      <div class="px-64 grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
         {featuredItems.map((item) => {
           return (
-            <div class=" rounded-lg border-solid border-2 border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
+            <div class=" bg-white shadow-md rounded-lg border-solid border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
               <h3>{item.name}</h3>
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />

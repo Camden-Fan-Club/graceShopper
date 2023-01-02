@@ -41,10 +41,10 @@ export default function Categories() {
   return (
     <>
       <h2 class="flex justify-center">{`${catDict[catId]}`} </h2>
-      <div class="grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
+      <div class=" px-64 grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
         {catItems.map((item) => {
           return (
-            <div class="rounded-lg border-solid border-2 border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
+            <div class="rounded-lg border-solid bg-white shadow-md border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
               <h3>{item.name}</h3>
               <p>{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />

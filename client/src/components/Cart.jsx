@@ -22,7 +22,7 @@ export default function Cart() {
           cartTotal += item.price * orderItem.quantity;
           return (
             <div
-              class="  rounded-lg  bg-stone-100 border-solid border-2 border-slate-700 flex flex-col h-auto w-auto
+              class="  rounded-lg bg-white shadow-md bg-stone-100 border-solid border-slate-700 flex flex-col h-auto w-auto
              gap-h-2 ml-2 items-center"
             >
               <img className="h-40 mt-0" src={item.imageUrl} />
