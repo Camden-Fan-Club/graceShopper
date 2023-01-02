@@ -21,11 +21,11 @@ export default function Sale() {
     <div>
       {" "}
       <h3 class="flex justify-center">For Sale</h3>
-      <div class="grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
+      <div class=" px-64 grid lg:grid-cols-4 gap-6 md:grid-cols-2  flex-wrap justify-around ">
         {items.map((item) => {
           if (item.onSale) {
             return (
-              <div class="border-solid border-2 border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
+              <div class="border-solid rounded-lg bg-white shadow-md border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
                 <img className="h-40 mt-0" src={item.imageUrl} />
