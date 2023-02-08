@@ -2,6 +2,8 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import { Link } from "react-router-dom";
+
 export default function Login() {
   const { loginUser } = useAuth();
   const { fetchCart } = useCart();
@@ -12,7 +14,7 @@ export default function Login() {
 
   return (
     <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
-      <h4 class="flex justify-center m-8">Login</h4>
+      <h4 class="flex justify-center m-8">Login to get started</h4>
       <form
         onSubmit={async (e) => {
           e.preventDefault();
@@ -29,7 +31,7 @@ export default function Login() {
             <input
               class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
               for="grid-first-name"
-              placeholder="name"
+              placeholder="Username"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -39,29 +41,25 @@ export default function Login() {
             <input
               class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
               for="grid-last-name"
-              placeholder="password"
+              placeholder="Password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
         </div>
-        <input
-          class="w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4"
-          for="grid-password"
-          placeholder="email"
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+
         <div className="flex items-center mt-3 justify-center">
           <button
             class="bg-gray-600 hover:bg-bg-gray-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
-            Submit
+            Login
           </button>
         </div>
+        <a class="flex justify-center m-8">
+          Don't have an account? <Link to="/register">Sign up</Link>{" "}
+        </a>
       </form>
     </div>
   );
