@@ -33,7 +33,6 @@ export default function Navbar() {
       {selectedUser.username === "Guest" ? (
         <>
           <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
         </>
       ) : null}
       <Link to="/mycart">My Cart ({amount})</Link>
