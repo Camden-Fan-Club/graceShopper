@@ -10,6 +10,7 @@ export default function Login() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   return (
@@ -18,14 +19,25 @@ export default function Login() {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          await loginUser({ username, email, password });
+          try {
+            await loginUser({ username, email, password });
+          } catch (error) {
+            setError("Invalid Credentials");
+            setUsername("");
+            setPassword("");
+          }
+
           await fetchCart();
           setUsername("");
-          setEmail("");
           setPassword("");
           navigate("/");
         }}
       >
+        {error ? (
+          <>
+            <h3>{error}</h3>
+          </>
+        ) : null}
         <div class="flex flex-wrap -mx-3 mb-6 ">
           <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <input
