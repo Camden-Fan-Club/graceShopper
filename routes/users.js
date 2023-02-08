@@ -15,26 +15,30 @@ router.post(
     const { username, password, email } = req.body;
     console.log("req body reg", req.body);
     const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-    const createdUser = await prisma.users.create({
-      data: { username: username, password: hashedPassword, email: email },
-    });
+    try {
+      const createdUser = await prisma.users.create({
+        data: { username: username, password: hashedPassword, email: email },
+      });
 
-    delete createdUser.password;
+      delete createdUser.password;
 
-    const userId = createdUser.id;
-    await prisma.orders.create({
-      data: { userId: userId, status: "pending", is_cart: true },
-    });
+      const userId = createdUser.id;
+      await prisma.orders.create({
+        data: { userId: userId, status: "pending", is_cart: true },
+      });
 
-    const token = jwt.sign(createdUser, process.env.JWT_SECRET);
+      const token = jwt.sign(createdUser, process.env.JWT_SECRET);
 
-    res.cookie("token", token, {
-      sameSite: "strict",
-      httpOnly: true,
-      signed: true,
-    });
+      res.cookie("token", token, {
+        sameSite: "strict",
+        httpOnly: true,
+        signed: true,
+      });
 
-    res.send(createdUser);
+      res.send(createdUser);
+    } catch (error) {
+      next(error);
+    }
   })
 );
 
@@ -43,36 +47,40 @@ router.post(
   asyncErrorHandler(async (req, res, next) => {
     const { username, password } = req.body;
     console.log("req body reg", req.body);
+
     const user = await prisma.users.findUnique({
       where: { username: username },
     });
+    if (user) {
+      console.log("user in login", user);
+      const validPassword = await bcrypt.compare(password, user.password);
 
-    console.log("user", user);
-    const validPassword = await bcrypt.compare(password, user.password);
+      console.log("valid pass", validPassword);
 
-    console.log("valid pass", validPassword);
+      if (validPassword) {
+        const token = jwt.sign(user, process.env.JWT_SECRET);
+        console.log("user", user);
 
-    if (validPassword) {
-      const token = jwt.sign(user, process.env.JWT_SECRET);
-      console.log("user", user);
-
-      res.cookie("token", token, {
-        sameSite: "strict",
-        httpOnly: true,
-        signed: true,
-      });
-      delete user.password;
-      const cart = await prisma.orders.findMany({
-        where: { userId: user.id, is_cart: true },
-        include: {
-          order_items: {
-            include: {
-              items: true,
+        res.cookie("token", token, {
+          sameSite: "strict",
+          httpOnly: true,
+          signed: true,
+        });
+        delete user.password;
+        const cart = await prisma.orders.findMany({
+          where: { userId: user.id, is_cart: true },
+          include: {
+            order_items: {
+              include: {
+                items: true,
+              },
             },
           },
-        },
-      });
-      res.send(user);
+        });
+        res.send(user);
+      } else {
+        next("invalid credentials");
+      }
     } else {
       next("invalid credentials");
     }
