@@ -46,7 +46,7 @@ export default function Categories() {
           return (
             <div class="rounded-lg border-solid bg-white shadow-md border-slate-700 flex flex-col h-auto w-auto gap-y-6 ml-2 items-center">
               <h3>{item.name}</h3>
-              <p>{item.description}</p>
+              <p class="hidden">{item.description}</p>
               <img className="h-40 mt-0" src={item.imageUrl} />
               <p>${item.price}</p>
               {selectedUser.selectedUser.username == "Guest" ||
@@ -69,6 +69,7 @@ export default function Categories() {
                 </>
               )}
               <button
+                class="hover:drop-shadow-md hover:border-black hover:border-2"
                 onClick={async () => {
                   console.log("cart", cart);
                   try {
